@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-to-json",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A plugin to create json files from metalsmith.",
   "main": "index.js",
   "scripts": {
