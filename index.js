@@ -21,7 +21,7 @@ module.exports = function( options ) {
 
         });
 
-        if( creatIndexes ) {
+        if( createIndexes ) {
 
             if( ! indexPaths ) {
 
