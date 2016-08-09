@@ -47,7 +47,7 @@ module.exports = function( options ) {
 
                 output.contents = new Buffer('[' + articles.contents.toString() + ']', 'utf8');
 
-                files[filepath] = output;
+                files[filepath] = value + '/' + output;
 
             });
 
