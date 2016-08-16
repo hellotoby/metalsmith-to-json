@@ -32,6 +32,13 @@ Metalsmith(__dirname)
     });
 ```
 
+## Output
+
+Metalsmith to json will output files with a .json extension and the same filename as the source file.
+All frontmatter will be represented in the json object.
+
+When using the indexes option an index file will be created with the same name as the folder of files it's indexing and saved in the top level output directory.
+
 ## Options
 
 Metalsmith to json takes three options.
