@@ -6,7 +6,8 @@ module.exports = function( options ) {
 
     let outputPath      = options.outputPath || null,           // Specify a path (string) to put the json files eg. /api
         createIndexes   = options.createIndexes || false,       // Specify whether or not to create indexes of the accumulated files
-        indexPaths      = options.indexPaths || false;          // Specify paths to source folders with content to index
+        indexPaths      = options.indexPaths || false,          // Specify paths to source folders with content to index
+        onlyOutputIndex = options.onlyOutputIndex || false;     // Specify if whether or not to only output the index file for each indexPath
 
     return function( files, metalsmith, done ) {
 
@@ -43,6 +44,10 @@ module.exports = function( options ) {
 
                     if( regex.test( key ) ) {
                         output.contents.push( file.contents );
+
+                      if (onlyOutputIndex) {
+                        delete files[key];
+                      }
                     };
 
                 });

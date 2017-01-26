@@ -25,7 +25,8 @@ Metalsmith(__dirname)
     .use( tojson({
         outputPath : '',
         createIndexes : true,
-        indexPaths : ['/articles/', '/pages/']
+        indexPaths : ['/articles/', '/pages/'],
+        onlyOutputIndex : true
     })
     .build(function( err, files ) {
         if( err ) throw err;
@@ -46,3 +47,4 @@ Metalsmith to json takes three options.
 1. outputPath (string) : A string representing the path you'd like the json files to be output to.
 2. createIndexes (boolean) : A boolean to tell metalsmith to json whether or not you'd like to generate indexes.
 3. indexPaths (array) : An array of paths for metalsmith to json to generate indexes from.
+4. onlyOutputIndex (boolean) : A boolean to tell metalsmith to only output the index file for each specified indexPath. 
