@@ -42,9 +42,9 @@ When using the indexes option an index file will be created with the same name a
 
 ## Options
 
-Metalsmith to json takes three options.
+Metalsmith to json takes four options.
 
 1. outputPath (string) : A string representing the path you'd like the json files to be output to.
 2. createIndexes (boolean) : A boolean to tell metalsmith to json whether or not you'd like to generate indexes.
 3. indexPaths (array) : An array of paths for metalsmith to json to generate indexes from.
-4. onlyOutputIndex (boolean) : A boolean to tell metalsmith to only output the index file for each specified indexPath. 
+4. onlyOutputIndex (boolean) : A boolean to tell metalsmith to only output the index file for each specified indexPath.

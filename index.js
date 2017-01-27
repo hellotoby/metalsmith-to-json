@@ -43,11 +43,15 @@ module.exports = function( options ) {
                 _(files).forEach(function( file, key ) {
 
                     if( regex.test( key ) ) {
+
                         output.contents.push( file.contents );
 
-                      if (onlyOutputIndex) {
+                      if( onlyOutputIndex ) {
+
                         delete files[key];
+
                       }
+
                     };
 
                 });
