@@ -13,7 +13,7 @@ module.exports = function( options ) {
 
         _(files).forEach( function( file, key ) {
 
-            let data            = _.omit(file, ['mode', 'stats']);
+            let data            = _.omit(file, ['mode', 'stat', '_vinyl']);
             data.contents       = file.contents.toString();
             data.contents       = new Buffer( JSON.stringify( data ), 'utf8' );
 
