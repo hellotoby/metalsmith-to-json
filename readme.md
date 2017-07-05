@@ -25,7 +25,7 @@ Metalsmith(__dirname)
     .use( tojson({
         outputPath : '',
         createIndexes : true,
-        indexPaths : ['/articles/', '/pages/'],
+        indexPaths : ['articles', 'pages'],
         onlyOutputIndex : true
     })
     .build(function( err, files ) {
