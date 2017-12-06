@@ -1,13 +1,16 @@
 'use strict';
 
 const _ = require('lodash');
+const circularJSON = require('circular-json');
+const htmlToText = require('html-to-text');
 
 module.exports = function( options ) {
 
     let outputPath      = options.outputPath || null,           // Specify a path (string) to put the json files eg. /api
         createIndexes   = options.createIndexes || false,       // Specify whether or not to create indexes of the accumulated files
         indexPaths      = options.indexPaths || false,          // Specify paths to source folders with content to index
-        onlyOutputIndex = options.onlyOutputIndex || false;     // Specify if whether or not to only output the index file for each indexPath
+        onlyOutputIndex = options.onlyOutputIndex || false,    // Specify if whether or not to only output the index file for each indexPath
+        stripHTML       = options.stripHTML || false;            // Strip html tags from contents
 
     return function( files, metalsmith, done ) {
 
@@ -15,7 +18,11 @@ module.exports = function( options ) {
 
             let data            = _.omit(file, ['mode', 'stat', '_vinyl', 'stats']);
             data.contents       = file.contents.toString();
-            data.contents       = new Buffer( JSON.stringify( data ), 'utf8' );
+            
+            if (stripHTML)
+                data.contents = stripHTMLContents(data.contents);
+            
+            data.contents       = new Buffer( circularJSON.stringify( data ), 'utf8' );
 
             let filepath        = key.replace('.html', '.json');
             files[filepath]     = data;
@@ -68,4 +75,14 @@ module.exports = function( options ) {
 
     }
 
+}
+
+
+function stripHTMLContents(contents){
+    return htmlToText.fromString(contents, {
+        tables: true,
+        baseElement: 'article#main',
+        ignoreImage: true,
+        ignoreHref: true
+    });
 }
