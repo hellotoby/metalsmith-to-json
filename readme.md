@@ -48,3 +48,13 @@ Metalsmith to json takes four options.
 2. createIndexes (boolean) : A boolean to tell metalsmith to json whether or not you'd like to generate indexes.
 3. indexPaths (array) : An array of paths for metalsmith to json to generate indexes from.
 4. onlyOutputIndex (boolean) : A boolean to tell metalsmith to only output the index file for each specified indexPath.
+5. stripHTML (boolean) : A boolean to tell metalsmith-to-json to strip html tags
+6. stripHTMLOptions (object) : Options from [html-to-text](https://github.com/werk85/node-html-to-text) - defaults: 
+```js
+{
+    tables: true,
+    baseElement: 'body',
+    ignoreImage: true,
+    ignoreHref: true
+}
+```
