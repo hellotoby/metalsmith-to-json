@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "circular-json": "^0.4.0",
-    "html-to-text": "^3.3.0",
+    "html-to-text": "^9.0.4",
     "lodash": "^4.17.15"
   }
 }
